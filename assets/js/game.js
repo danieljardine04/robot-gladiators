@@ -1,1 +1,45 @@
-window.alert("This is an alert! JavaScript is running!");
+var playerName = window.prompt("What is your robot's name?");
+var playerHealth = 100;
+var playerAttack = 10;
+
+console.log(playerName, playerHealth, playerAttack);
+
+var enemyName = "Roberto";
+var enemyHealth = 50;
+var enemyAttack = 12;
+
+var fight = function(){
+    //Alert players that they are starting the round
+    window.alert("Welcome to Robot Gladiators!");
+
+    //subtract the value of 'playerAttack' from the value of 'enemyHealth' and use that result to update the 'enemyHealth' variable
+
+    enemyHealth = enemyHealth - playerAttack;
+
+    if(enemyHealth <= 0) {
+        window.alert(playerName + " destroyed " + enemyName +  " and " + enemyName + " Screamed his final robot scream and died!");
+    }
+    else {
+        window.alert(enemyName + " still has " + enemyHealth + " health left.");
+    }
+
+    // Log a resulting message to the console so we know that it worked.
+
+    console.log(playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining.");
+
+    // Subtract the value of 'enemyAttack' from the value of 'playerHealth' and use that result to update the 'playerHealth' variable
+
+    playerHealth = playerHealth - enemyAttack;
+
+    if(playerHealth <= 0){
+        window.alert(enemyName + " worked his magic on " + playerName + " and " + playerName + " suffered a horrible awful yet painful death!");
+    }
+    else {
+        window.alert(playerName + " still has " + playerHealth  + " Health remaining.");
+    }
+
+    // Log a resulting message to the console so we know that it worked. 
+
+    console.log(enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining.");
+}
+fight();
