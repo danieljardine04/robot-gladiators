@@ -59,8 +59,9 @@ var fight = function(enemyName){
     var confirmSkip = window.confirm("Are you sure you'd like to quit?");
     if(confirmSkip) {
         window.alert(playerName + " has chosen to skip the fight!");
-        playerMoney = playerMoney - 2;
+        playerMoney = playerMoney - 10;
         window.alert(playerName + " now has " + playerMoney + " dollars.");
+        console.log("playerMoney" , playerMoney);
     } else {
         fight(enemies[i]);
     }
@@ -72,9 +73,15 @@ var fight = function(enemyName){
 }
 
 for(var i = 0; i < enemies.length; i++){
-   var pickedEnemyName = enemies[i];
-    enemyHealth = 50;
-    fight(pickedEnemyName);
+    if(playerHealth > 0) {
+        window.alert("Welcome to Robot Gladiators! Round" + (i + 1));
+        var pickedEnemyName = enemies[i];
+         enemyHealth = 50;
+         fight(pickedEnemyName);
+    } else {
+        window.alert("GAME OVER!");
+        break;
+    }
 }
 
 
