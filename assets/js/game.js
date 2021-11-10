@@ -1,10 +1,16 @@
 var player = {
 
-   playerName: window.prompt("What is your robot's name?"),
-   playerHealth: 100,
-   attack:  10,
-   playerMoney: 10,
+  playerHealth: 100,
+  attack:  10,
+  playerMoney: 10,
 
+  begin: function(){
+   playerName = window.prompt("What is your robot's name?");
+   if(playerName === "" || playerName === null){
+     window.alert("That was not a valid name you have to have characters in your name");
+     this.begin();
+   }
+  },
    reset: function(){
      this.playerHealth = 100;
      this.attack = 10;
@@ -23,6 +29,8 @@ var player = {
      window.confirm("You now have " + this.money + " Dollars left." );
    }
 }
+player.begin()
+
 
 
 var randomNumber = function(min, max) {
